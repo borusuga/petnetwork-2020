@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "489459189461",
+    "firebase_url": "https://petnetwork-2020.firebaseio.com",
+    "project_id": "petnetwork-2020",
+    "storage_bucket": "petnetwork-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489459189461:android:98649e5e5fcd553740845c",
+        "android_client_info": {
+          "package_name": "com.supernovadev.petnetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489459189461-4q66hnsc49drcgv3taaost9k88mjdbjp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supernovadev.petnetwork",
+            "certificate_hash": "5831016475288b67f299471efe133c53fb208aca"
+          }
+        },
+        {
+          "client_id": "489459189461-qpu8a0dghs26ojpth8rnm17vcj7g89hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIZSSFQigIYcn804fiXIQyhfhfdSKERS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489459189461-qpu8a0dghs26ojpth8rnm17vcj7g89hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

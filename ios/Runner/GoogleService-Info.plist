@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>489459189461-teiur4qarrf8hvt90otpjgh3j1n2oplf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.489459189461-teiur4qarrf8hvt90otpjgh3j1n2oplf</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>489459189461-4q66hnsc49drcgv3taaost9k88mjdbjp.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzUmiYlXlwTIrFG6ZjZoGfGvweVdYwO1M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>489459189461</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.supernovadev.petnetwork</string>
+	<key>PROJECT_ID</key>
+	<string>petnetwork-2020</string>
+	<key>STORAGE_BUCKET</key>
+	<string>petnetwork-2020.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:489459189461:ios:26b6075e941f7c9140845c</string>
+	<key>DATABASE_URL</key>
+	<string>https://petnetwork-2020.firebaseio.com</string>
+</dict>
+</plist>
