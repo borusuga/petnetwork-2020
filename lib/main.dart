@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:petnetwork/screens/login.dart';
+import 'package:petnetwork/authorization/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:io';
+import 'package:petnetwork/application/screens/newsfeed/menuRun.dart';
 
-void main() async{
-  
+import 'authorization/screens/profile_screen.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if(Platform.isAndroid){
     // Android
@@ -43,7 +45,10 @@ class PetNetApp extends StatelessWidget{
         textTheme: TextTheme(title: TextStyle(color: Colors.white))
       ),
       //home: AuthorizationPage()
-      home: LoginScreen(),
+      //home: LoginScreen(),
+      //home: HomePage(),
+      home: MenuFrame(),
+      //home: Profile(),
     );
   }
 }

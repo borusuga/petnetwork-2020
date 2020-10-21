@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petnetwork/authentification/register_executor.dart';
-import 'package:petnetwork/utilities/constants.dart';
+import 'package:petnetwork/authorization/auth_executors/login_executor.dart';
+import 'package:petnetwork/authorization/screens/registration.dart';
+import 'package:petnetwork/authorization/utilities/constants.dart';
 
-class RegisterScreen extends StatefulWidget {
+
+class LoginScreen extends StatefulWidget {
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-
+class _LoginScreenState extends State<LoginScreen> {
+  bool _rememberMe = false;
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
-  TextEditingController _passwordCheckController = new TextEditingController();
+
 
   Widget _buildEmailTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
+      children: <Widget>[ 
         Text(
           'Почта',
           style: kLabelStyle,
@@ -86,39 +88,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget _buildPasswordCheckTF() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Подтверждение пароля',
+  Widget _buildForgotPasswordBtn() {
+    return Container(
+      alignment: Alignment.centerRight,
+      child: FlatButton(
+        onPressed: () => print('Забыли пароль Button Pressed'),
+        padding: EdgeInsets.only(right: 0.0),
+        child: Text(
+          'Забыли пароль?',
           style: kLabelStyle,
         ),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            controller: _passwordCheckController,
-            obscureText: true,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.white,
-              ),
-              hintText: 'Введите пароль ещё раз...',
-              hintStyle: kHintTextStyle,
+      ),
+    );
+  }
+
+  Widget _buildRememberMeCheckbox() {
+    return Container(
+      height: 20.0,
+      child: Row(
+        children: <Widget>[
+          Theme(
+            data: ThemeData(unselectedWidgetColor: Colors.white),
+            child: Checkbox(
+              value: _rememberMe,
+              checkColor: Color(0xFF1A237E),
+              activeColor: Colors.white,
+              onChanged: (value) {
+                setState(() {
+                  _rememberMe = value;
+                });
+              },
             ),
           ),
-        ),
-      ],
+          Text(
+            'Запомнить меня',
+            style: kLabelStyle,
+          ),
+        ],
+      ),
     );
   }
 
@@ -128,10 +135,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: (){
+        onPressed: () {
           print('ВОЙТИ Button Pressed');
-          email_pass_signup(_emailController.text, _passwordController.text);
-          Navigator.pop(context);
+          email_pass_signin(_emailController.text, _passwordController.text);
+          //Navigator.push(
+          //  context,
+          //  MaterialPageRoute(builder: (context) => RegisterScreen()),
+          //);
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
@@ -164,7 +174,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         SizedBox(height: 20.0),
         Text(
-          'Зарегистрироваться с помощью',
+          'Войти с помощью',
           style: kLabelStyle,
         ),
       ],
@@ -218,6 +228,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  Widget _buildSignupBtn() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RegisterScreen()),
+        );
+        print('Sign Up Button Pressed');
+      },
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: 'Нет аккаунта? ',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            TextSpan(
+              text: 'Зарегистрироваться',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,10 +279,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFF3AB795),
-                      Color(0xFF3AB795),
-                      Color(0xFF3AB795),
-                      Color(0xFF3AB795),
+                      Color(0xFF5C6BC0),
+                      Color(0xFF3F51B5),
+                      Color(0xFF303F9F),
+                      Color(0xFF1A237E),
                     ],
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
@@ -256,7 +300,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Регистрация',
+                        'Добро пожаловать',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'OpenSans',
@@ -266,13 +310,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       SizedBox(height: 30.0),
                       _buildEmailTF(),
-                      SizedBox(height: 30.0),
+                      SizedBox(
+                        height: 30.0,
+                      ),
                       _buildPasswordTF(),
-                      SizedBox(height: 30.0),
-                      _buildPasswordCheckTF(),
+                      _buildForgotPasswordBtn(),
+                      _buildRememberMeCheckbox(),
                       _buildLoginBtn(),
                       _buildSignInWithText(),
                       _buildSocialBtnRow(),
+                      _buildSignupBtn(),
                     ],
                   ),
                 ),
