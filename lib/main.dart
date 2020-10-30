@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:petnetwork/application/screens/menuRun.dart';
 import 'package:petnetwork/authorization/screens/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:io';
-import 'package:petnetwork/application/screens/newsfeed/menuRun.dart';
-
-import 'authorization/screens/profile_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

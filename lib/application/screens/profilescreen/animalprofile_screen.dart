@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:petnetwork/application/screens/newsfeed/news.dart';
+import 'package:petnetwork/application/screens/profilescreen/userprofile_screen.dart';
 
-class NewsDetailScreen extends StatelessWidget {
+class AnimalProfileScreen extends StatelessWidget {
   final Animal animal;
 
-  NewsDetailScreen({@required this.animal});
+  AnimalProfileScreen({@required this.animal});
 
   @override
   Widget build(BuildContext context) {

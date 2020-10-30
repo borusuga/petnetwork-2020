@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petnetwork/application/screens/newsfeed/news.dart';
-import 'package:petnetwork/application/screens/newsfeed/sidebarMenu.dart';
+import 'package:petnetwork/application/screens/sidebarMenu.dart';
+import 'package:petnetwork/application/screens/profilescreen/userprofile_screen.dart';
 
 
 
@@ -41,7 +42,9 @@ class _MenuFrameState extends State<MenuFrame>
     ];
     _animationController.forward();
     screens = {
-      0: NewsFeedScreen(menuCallback: popToMenu)
+      0: UserScreen(menuCallback: popToMenu),
+      1: NewsFeedScreen(menuCallback: popToMenu),
+      //2: MessageScreen(menuCallback: popToMenu),
     };
     screenSnapshot = screens.values.toList();
   }
@@ -80,8 +83,8 @@ class _MenuFrameState extends State<MenuFrame>
       duration: duration,
       top: 0,
       bottom: 0,
-      left: menuOpen ? deviceWidth * 0.55 - (position * 50) : 0.0,
-      right: menuOpen ? deviceWidth * -0.45 + (position * 50) : 0.0,
+      left: menuOpen ? deviceWidth * 0.55 - (position * 40) : 0.0,
+      right: menuOpen ? deviceWidth * -0.45 + (position * 40) : 0.0,
       child: ScaleTransition(
         scale: scaleAnimations[position],
         child: GestureDetector(
@@ -112,7 +115,7 @@ class _MenuFrameState extends State<MenuFrame>
 
   @override
   Widget build(BuildContext context) {
-    final deviceWidth = MediaQuery.of(context).size.width;
+    //final deviceWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: finalStack(),
     );

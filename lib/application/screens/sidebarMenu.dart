@@ -13,21 +13,21 @@ class _MenuScreenState extends State<MenuScreen> {
   int selectedMenuIndex = 0;
 
   List<String> menuItems = [
+    'Профиль',
     'Новости',
+    'МеСсЕнДжЕр',
     'Потеряшки',
     'Карта',
     'Тиндер питомцев',
-    'МеСсЕнДжЕр',
-    'Профиль',
   ];
 
   List<IconData> icons = [
+    FontAwesomeIcons.userAlt,
     FontAwesomeIcons.newspaper,
+    Icons.mail,
     FontAwesomeIcons.search,
     FontAwesomeIcons.map,
     FontAwesomeIcons.fire,
-    Icons.mail,
-    FontAwesomeIcons.userAlt,
   ];
 
   Widget buildMenuRow(int index) {
